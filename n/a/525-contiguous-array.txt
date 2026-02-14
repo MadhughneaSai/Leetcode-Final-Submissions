@@ -1,0 +1,43 @@
+# 525. Contiguous Array
+# Difficulty: N/A
+# URL: https://leetcode.com/problems/contiguous-array/description/
+# Date: 2/14/2026
+
+# ========== Solution A ==========
+# Language: txt
+# Date: 2/14/2026
+
+class Solution {class Solution {
+public:public:
+    int findMaxLength(vector<int>& nums) {    int findMaxLength(vector<int>& nums) {
+
+        int n = nums.size();        int n = nums.size();
+        //converting 0s to -1s        //converting 0s to -1s
+        for(int i=0;i<n;i++){        for(int i=0;i<n;i++){
+            if(nums[i]==0){            if(nums[i]==0){
+                nums[i]=-1;                nums[i]=-1;
+            }            }
+        }        }
+        unordered_map<int,int> umap;         unordered_map<int,int> umap; 
+        umap[0]=-1;        umap[0]=-1;
+        int prefix=0;        int prefix=0;
+        int window =0;        int window =0;
+        int max_window =0;        int max_window =0;
+        for(int i=0;i<n;i++){        for(int i=0;i<n;i++){
+            prefix+=nums[i];            prefix+=nums[i];
+
+            auto result = umap.find(prefix);            auto result = umap.find(prefix);
+            if(result != umap.end()){            if(result != umap.end()){
+                window = i - result->second;                window = i - result->second;
+                max_window=max(window,max_window);                max_window=max(window,max_window);
+            }             } 
+            else{            else{
+                umap[prefix]=i;                umap[prefix]=i;
+            }            }
+        }         } 
+
+        return max_window;        return max_window;
+
+                
+
+
