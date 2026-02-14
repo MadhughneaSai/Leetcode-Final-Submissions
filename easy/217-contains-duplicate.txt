@@ -1,0 +1,29 @@
+# 217. Contains Duplicate
+# Difficulty: Easy
+# URL: https://leetcode.com/problems/contains-duplicate/submissions/1919364852/
+# Date: 2/14/2026
+
+# ========== Solution A ==========
+# Language: txt
+# Date: 2/14/2026
+
+class Solution {class Solution {
+public:public:
+    bool containsDuplicate(vector<int>& a) {    bool containsDuplicate(vector<int>& a) {
+    unordered_map<int,int> umap;    unordered_map<int,int> umap;
+    for(auto x:a){    for(auto x:a){
+    if(umap.find(x)==umap.end()){    if(umap.find(x)==umap.end()){
+        umap[x]=0;        umap[x]=0;
+    }    }
+    else{    else{
+        return true;        return true;
+    }    }
+        
+
+    }    }
+    return false;    return false;
+    }    }
+};};
+        
+
+
