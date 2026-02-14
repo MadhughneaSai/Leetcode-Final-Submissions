@@ -1,6 +1,6 @@
 # 525. Contiguous Array
 # Difficulty: Medium
-# URL: https://leetcode.com/problems/contiguous-array/description/
+# URL: https://leetcode.com/problems/contiguous-array/submissions/1919355957/
 # Date: 2/14/2026
 
 # ========== Solution A ==========
