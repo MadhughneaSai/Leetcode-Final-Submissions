@@ -1,0 +1,37 @@
+# 49. Group Anagrams
+# Difficulty: Medium
+# URL: https://leetcode.com/problems/group-anagrams/
+# Date: 2/15/2026
+
+# ========== Solution A ==========
+# Language: txt
+# Date: 2/15/2026
+
+#include <unordered_map> #include <unordered_map> 
+
+class Solution {class Solution {
+public:public:
+    vector<vector<string>> groupAnagrams(vector<string>& strs) {    vector<vector<string>> groupAnagrams(vector<string>& strs) {
+        int umap_counter_index=0;        int umap_counter_index=0;
+        unordered_map<string,int> umap;        unordered_map<string,int> umap;
+        vector<vector<string>> final;        vector<vector<string>> final;
+
+        for(auto s: strs){        for(auto s: strs){
+            string temp_sort = s;            string temp_sort = s;
+            sort(temp_sort.begin(),temp_sort.end());            sort(temp_sort.begin(),temp_sort.end());
+            if(umap.find(temp_sort)!=umap.end()){            if(umap.find(temp_sort)!=umap.end()){
+                final[umap[temp_sort]].push_back(s);                final[umap[temp_sort]].push_back(s);
+            }            }
+            else{            else{
+                umap[temp_sort] = umap_counter_index;                umap[temp_sort] = umap_counter_index;
+                umap_counter_index++;                umap_counter_index++;
+                final.push_back({s});                final.push_back({s});
+            }            }
+        }        }
+
+        return final;        return final;
+                
+    }    }
+};};
+
+
