@@ -1,12 +1,37 @@
 # 1. Two Sum
 # Difficulty: Easy
-# URL: https://leetcode.com/problems/two-sum/
-# Date: 2/14/2026
+# URL: https://leetcode.com/problems/two-sum/submissions/1920131556/
+# Date: 2/15/2026
 
 # ========== Solution A ==========
 # Language: txt
-# Date: 2/14/2026
+# Date: 2/15/2026
 
 class Solution {class Solution {
+public:public:
+    vector<int> twoSum(vector<int>& nums, int target) {    vector<int> twoSum(vector<int>& nums, int target) {
+                
+    unordered_map<int, int> umap;    unordered_map<int, int> umap;
+
+
+    int complement;    int complement;
+        
+    for(int i=0;i<nums.size();i++){    for(int i=0;i<nums.size();i++){
+        complement = target - nums[i];        complement = target - nums[i];
+                
+        if(umap.find(complement)!=umap.end()){        if(umap.find(complement)!=umap.end()){
+            return {umap.find(complement)->second,i};            return {umap.find(complement)->second,i};
+        }        }
+        else{        else{
+            umap[nums[i]]=i;            umap[nums[i]]=i;
+        }        }
+
+
+    }    }
+
+    return {};      return {};  
+
+    }    }
+};};
 
 
