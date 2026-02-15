@@ -1,6 +1,6 @@
 # 49. Group Anagrams
 # Difficulty: Medium
-# URL: https://leetcode.com/problems/group-anagrams/
+# URL: https://leetcode.com/problems/group-anagrams/submissions/1920171416/
 # Date: 2/15/2026
 
 # ========== Solution A ==========
