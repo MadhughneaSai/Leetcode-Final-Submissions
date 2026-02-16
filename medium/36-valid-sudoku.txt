@@ -1,0 +1,37 @@
+# 36. Valid Sudoku
+# Difficulty: Medium
+# URL: https://leetcode.com/problems/valid-sudoku/submissions/1921435833/
+# Date: 2/16/2026
+
+# ========== Solution A ==========
+# Language: txt
+# Date: 2/16/2026
+
+            cols[c]|=pos;            cols[c]|=pos;
+
+
+            int box_num = (r/3)*3 + (c/3);            int box_num = (r/3)*3 + (c/3);
+            if((boxs[box_num]&pos)>0){            if((boxs[box_num]&pos)>0){
+            }            }
+                return false;                return false;
+            if((cols[c]&pos)>0){            if((cols[c]&pos)>0){
+            //col, yeah we are checking same 5 in col now            //col, yeah we are checking same 5 in col now
+            //need to change pos, as pos is asking if say 5 is there in that            //need to change pos, as pos is asking if say 5 is there in that
+
+
+            rows[r]|=pos;            rows[r]|=pos;
+            }            }
+                return false;                return false;
+            if((rows[r]&pos)>0){            if((rows[r]&pos)>0){
+
+            //to work in freq_char array            //to work in freq_char array
+                return false;                return false;
+            }            }
+            boxs[box_num]|=pos;            boxs[box_num]|=pos;
+
+            }            }
+
+        }        }
+        return true;        return true;
+
+
