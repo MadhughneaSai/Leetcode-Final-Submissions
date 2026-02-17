@@ -1,6 +1,6 @@
 # 128. Longest Consecutive Sequence
 # Difficulty: Medium
-# URL: https://leetcode.com/problems/longest-consecutive-sequence/
+# URL: https://leetcode.com/problems/longest-consecutive-sequence/submissions/1922499113/
 # Date: 2/17/2026
 
 # ========== Solution A ==========
@@ -10,14 +10,10 @@
 class Solution {class Solution {
 public:public:
     int longestConsecutive(vector<int>& nums) {    int longestConsecutive(vector<int>& nums) {
-                
-
-
         unordered_set<int> uset(nums.begin(),nums.end());        unordered_set<int> uset(nums.begin(),nums.end());
 
-        for(int num: nums){        for(int num: nums){
+        for(int num: uset){        for(int num: uset){
             if(uset.find(num-1)!=uset.end()){            if(uset.find(num-1)!=uset.end()){
-        }        }
                 continue;                continue;
             }            }
             curr_seq=1;            curr_seq=1;
@@ -26,13 +22,17 @@ public:public:
         int curr_seq=0;        int curr_seq=0;
                 curr_seq++;                curr_seq++;
             }            }
-    }    }
                 curr_num++;                curr_num++;
             curr_num=num;            curr_num=num;
         int curr_num=0;        int curr_num=0;
             max_seq=max(max_seq,curr_seq);            max_seq=max(max_seq,curr_seq);
+        }        }
 
         return max_seq;        return max_seq;
+
+
+                
+    }    }
 };};
 
 
