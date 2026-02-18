@@ -7,32 +7,65 @@
 # Language: txt
 # Date: 2/18/2026
 
+classÂ SolutionÂ {classÂ SolutionÂ {
+public:public:
+Â Â Â Â intÂ firstMissingPositive(vector<int>&Â nums)Â {Â Â Â Â intÂ firstMissingPositive(vector<int>&Â nums)Â {
+Â Â Â Â Â Â Â Â intÂ nÂ =Â nums.size();Â Â Â Â Â Â Â Â intÂ nÂ =Â nums.size();
+Â Â Â Â Â Â Â Â boolÂ contains1Â =Â false;Â Â Â Â Â Â Â Â boolÂ contains1Â =Â false;
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â 
+Â Â Â Â Â Â Â Â //Â StepÂ 1:Â ReplaceÂ out-of-rangeÂ valuesÂ withÂ 1Â Â Â Â Â Â Â Â //Â StepÂ 1:Â ReplaceÂ out-of-rangeÂ valuesÂ withÂ 1
+Â Â Â Â Â Â Â Â forÂ (intÂ iÂ =Â 0;Â iÂ <Â n;Â i++)Â {Â Â Â Â Â Â Â Â forÂ (intÂ iÂ =Â 0;Â iÂ <Â n;Â i++)Â {
+Â Â Â Â Â Â Â Â Â Â Â Â ifÂ (nums[i]Â ==Â 1)Â contains1Â =Â true;Â Â Â Â Â Â Â Â Â Â Â Â ifÂ (nums[i]Â ==Â 1)Â contains1Â =Â true;
+Â Â Â Â Â Â Â Â Â Â Â Â ifÂ (nums[i]Â <=Â 0Â ||Â nums[i]Â >Â n)Â nums[i]Â =Â 1;Â Â Â Â Â Â Â Â Â Â Â Â ifÂ (nums[i]Â <=Â 0Â ||Â nums[i]Â >Â n)Â nums[i]Â =Â 1;
+Â Â Â Â Â Â Â Â }Â Â Â Â Â Â Â Â }
+Â Â Â Â Â Â Â Â ifÂ (!contains1)Â returnÂ 1;Â Â Â Â Â Â Â Â ifÂ (!contains1)Â returnÂ 1;
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â 
+Â Â Â Â Â Â Â Â //Â StepÂ 2:Â MarkÂ presenceÂ atÂ indexÂ (valueÂ -Â 1)Â Â Â Â Â Â Â Â //Â StepÂ 2:Â MarkÂ presenceÂ atÂ indexÂ (valueÂ -Â 1)
+Â Â Â Â Â Â Â Â forÂ (intÂ iÂ =Â 0;Â iÂ <Â n;Â i++)Â {Â Â Â Â Â Â Â Â forÂ (intÂ iÂ =Â 0;Â iÂ <Â n;Â i++)Â {
+Â Â Â Â Â Â Â Â Â Â Â Â intÂ valueÂ =Â abs(nums[i]);Â Â Â Â Â Â Â Â Â Â Â Â intÂ valueÂ =Â abs(nums[i]);
+Â Â Â Â Â Â Â Â Â Â Â Â nums[valueÂ -Â 1]Â =Â -abs(nums[valueÂ -Â 1]);Â Â //Â Simple!Â NoÂ specialÂ case!Â Â Â Â Â Â Â Â Â Â Â Â nums[valueÂ -Â 1]Â =Â -abs(nums[valueÂ -Â 1]);Â Â //Â Simple!Â NoÂ specialÂ case!
+Â Â Â Â Â Â Â Â }Â Â Â Â Â Â Â Â }
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â 
+Â Â Â Â Â Â Â Â //Â StepÂ 3:Â FirstÂ positiveÂ indexÂ meansÂ (indexÂ +Â 1)Â isÂ missingÂ Â Â Â Â Â Â Â //Â StepÂ 3:Â FirstÂ positiveÂ indexÂ meansÂ (indexÂ +Â 1)Â isÂ missing
+Â Â Â Â Â Â Â Â forÂ (intÂ iÂ =Â 0;Â iÂ <Â n;Â i++)Â {Â Â Â Â Â Â Â Â forÂ (intÂ iÂ =Â 0;Â iÂ <Â n;Â i++)Â {
+Â Â Â Â Â Â Â Â Â Â Â Â ifÂ (nums[i]Â >Â 0)Â returnÂ iÂ +Â 1;Â Â Â Â Â Â Â Â Â Â Â Â ifÂ (nums[i]Â >Â 0)Â returnÂ iÂ +Â 1;
+Â Â Â Â Â Â Â Â }Â Â Â Â Â Â Â Â }
+Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â 
+Â Â Â Â Â Â Â Â returnÂ nÂ +Â 1;Â Â Â Â Â Â Â Â returnÂ nÂ +Â 1;
+Â Â Â Â }Â Â Â Â }
+};};
+
+
+
+# ========== Solution B ==========
+# Language: txt
+# Date: 2/18/2026
+
 class Solution {class Solution {
 public:public:
     int firstMissingPositive(vector<int>& nums) {    int firstMissingPositive(vector<int>& nums) {
-        int n = nums.size();        int n = nums.size();
-        bool contains1 = false;        bool contains1 = false;
-                
-        // Step 1: Replace out-of-range values with 1        // Step 1: Replace out-of-range values with 1
-        for (int i = 0; i < n; i++) {        for (int i = 0; i < n; i++) {
-            if (nums[i] == 1) contains1 = true;            if (nums[i] == 1) contains1 = true;
-            if (nums[i] <= 0 || nums[i] > n) nums[i] = 1;            if (nums[i] <= 0 || nums[i] > n) nums[i] = 1;
-        }        }
-        if (!contains1) return 1;        if (!contains1) return 1;
-                
-        // Step 2: Mark presence at index (value - 1)        // Step 2: Mark presence at index (value - 1)
-        for (int i = 0; i < n; i++) {        for (int i = 0; i < n; i++) {
-            int value = abs(nums[i]);            int value = abs(nums[i]);
-            nums[value - 1] = -abs(nums[value - 1]);  // Simple! No special case!            nums[value - 1] = -abs(nums[value - 1]);  // Simple! No special case!
-        }        }
-                
-        // Step 3: First positive index means (index + 1) is missing        // Step 3: First positive index means (index + 1) is missing
-        for (int i = 0; i < n; i++) {        for (int i = 0; i < n; i++) {
-            if (nums[i] > 0) return i + 1;            if (nums[i] > 0) return i + 1;
-        }        }
-                
-        return n + 1;        return n + 1;
+        
+
+
+    int n=nums.size();    int n=nums.size();
+
+    while(i<n){    while(i<n){
+    int i=0;    int i=0;
+        if(nums[i]>0 && nums[i]<=n && nums[i]!=nums[nums[i]-1]){        if(nums[i]>0 && nums[i]<=n && nums[i]!=nums[nums[i]-1]){
     }    }
+            swap(nums[i],nums[nums[i]-1]);            swap(nums[i],nums[nums[i]-1]);
+        }        }
+        else{        else{
+            ++i;            ++i;
+        }        }
+
+    for(int i=0;i<n;i++){    for(int i=0;i<n;i++){
+        if(nums[i]!=i+1){        if(nums[i]!=i+1){
+    }    }
+            return i+1;            return i+1;
+        }        }
+    }    }
+    return n+1;    return n+1;
 };};
 
 
